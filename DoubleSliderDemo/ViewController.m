@@ -48,7 +48,7 @@
     
     self.priceMin =0;
     self.priceMax =100+FilterOverFlow;
-    self.peopleMin = 10;
+    self.peopleMin = 0;
     self.peopleMax = 200+FilterOverFlow;
     self.timeMin = 0;
     self.timeMax = 90 ;
@@ -100,7 +100,7 @@
 }
 - (KAFilterView *)filterView2 {
     if (!_filterView2) {
-        _filterView2 = [[KAFilterView alloc] initWithFrame:CGRectMake(0, 40, ScreenWidth, ScreenHeight) withFilerMin:0 filerMax:90  selectMin:self.timeMin selectMax:self.timeMax sliderArr:@[@"1小时",@"1.5小时",@"2小时",@"2.5小时",@"3小时",@"3.5小时",@"半天",@"一天",@"两天",@"三天及以上"] unit:nil];
+        _filterView2 = [[KAFilterView alloc] initWithFrame:CGRectMake(0, 40, ScreenWidth, ScreenHeight) withFilerMin:0 filerMax:90 selectMin:self.timeMin selectMax:self.timeMax sliderArr:@[@"1小时",@"1.5小时",@"2小时",@"2.5小0时",@"3小时",@"3.5小时",@"半天",@"一天",@"两天",@"三天及以上"] unit:nil];
         
     }
     return _filterView2;
@@ -120,21 +120,21 @@
         [self.view addSubview:self.filterView0];
         [self.filterView0 animateAction];
         [self.filterArr addObject:self.filterView0];
-     __weak typeof(self) weakself = self;
+        __weak typeof(self) weakself = self;
         [_filterView0 setFilterSendBlock:^(CGFloat min, CGFloat max) {
-           
-            self.priceMin = min;
-            self.priceMax = max;
+           __strong typeof(self) strongself = weakself;
+            strongself.priceMin = min;
+            strongself.priceMax = max;
 //            [self first];
-            for (LeftTitleBtn *btn in self.titleBtnArr) {
+            for (LeftTitleBtn *btn in strongself.titleBtnArr) {
                 btn.selected = NO;
-                [self.filterView0 baceAnimateAction];
+                [strongself.filterView0 baceAnimateAction];
             }
         }];
         
         [_filterView0 setTouchBlock:^{
-            
-            for (LeftTitleBtn *btn in self.titleBtnArr) {
+             __strong typeof(self) strongself = weakself;
+            for (LeftTitleBtn *btn in strongself.titleBtnArr) {
                 btn.selected = NO;
                 //                    [self.filterView0 baceAnimateAction];
             }
@@ -146,13 +146,13 @@
         [self.filterArr addObject:self.filterView1];
         __weak typeof(self) weakself = self;
         [_filterView1 setFilterSendBlock:^(CGFloat min, CGFloat max) {
-    
-            self.peopleMin = min;
-            self.peopleMax = max;
+            __strong typeof(self) strongself = weakself;
+            strongself.peopleMin = min;
+            strongself.peopleMax = max;
 //            [self first];
-            for (LeftTitleBtn *btn in self.titleBtnArr) {
+            for (LeftTitleBtn *btn in strongself.titleBtnArr) {
                 btn.selected = NO;
-                [self.filterView1 baceAnimateAction];
+                [strongself.filterView1 baceAnimateAction];
             }
             
         }];
