@@ -2,8 +2,8 @@
 //  LeftTitleBtn.h
 //  MasterKA
 //
-//  Created by 余伟 on 16/12/13.
-//  Copyright © 2016年 jinghao. All rights reserved.
+//  Created by chenlu on 16/12/13.
+//  Copyright © 2016年 chenlu. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>

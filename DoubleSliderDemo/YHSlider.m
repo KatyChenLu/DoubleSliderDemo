@@ -2,8 +2,8 @@
 //  YHSlider.m
 //  SliderDemo
 //
-//  Created by yunhang on 2017/1/10.
-//  Copyright © 2017年 muse. All rights reserved.
+//  Created by chenlu on 2017/1/10.
+//  Copyright © 2017年 chenlu. All rights reserved.
 //
 
 #import "YHSlider.h"
