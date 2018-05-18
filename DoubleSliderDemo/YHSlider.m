@@ -107,8 +107,10 @@
 - (void)panHappen:(UIPanGestureRecognizer *)pan
 {
     
-//    if (_first.center.x < _second.center.x && self.firstValue < self.secondValue && (int)self.firstValue < (int)self.secondValue) {
     if(self.firstValue<self.secondValue){
+        
+        [self bringSubviewToFront:pan.view];
+        
         CGPoint point = [pan translationInView:self];
         
         CGPoint center = pan.view.center;
