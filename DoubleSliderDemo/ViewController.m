@@ -205,9 +205,6 @@
         }
         
     }
-    //    if (sender.selected) {
-    ////        sender.imageView.tintColor = RGBFromHexadecimal(0xff5e28);
-    //    }
     [self.view bringSubviewToFront:self.filterTitleView];
     
 }
